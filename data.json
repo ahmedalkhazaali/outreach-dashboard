@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-17T22:43:53.726688+00:00",
-  "stage": "ready",
+  "updated_at": "2026-10-17T23:34:14.658486+00:00",
+  "stage": "pilot_sent",
   "note": "Collection stopped by request; validated batch ready. Awaiting send approval.",
   "counts": {
     "collected": 481,
