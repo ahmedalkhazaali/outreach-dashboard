@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-10-17T23:34:14.658486+00:00",
+  "updated_at": "2026-10-17T23:36:20.936001+00:00",
   "stage": "pilot_sent",
   "note": "Collection stopped by request; validated batch ready. Awaiting send approval.",
   "counts": {
     "collected": 481,
-    "validated": 464,
+    "validated": 465,
     "ready_to_send": 464,
     "sent": 0,
     "replied": 0
@@ -200,7 +200,7 @@
     {
       "business": "Allure Dental",
       "contact": "",
-      "email": "info@alluredental.ca",
+      "email": "Info@alluredental.ca",
       "city": "Ajax",
       "status": "validated"
     },
