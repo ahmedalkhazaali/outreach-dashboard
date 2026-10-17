@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-10-17T23:36:20.936001+00:00",
+  "updated_at": "2026-10-17T23:39:44.054794+00:00",
   "stage": "pilot_sent",
-  "note": "Collection stopped by request; validated batch ready. Awaiting send approval.",
+  "note": "Pilot batch of 25 Ottawa emails sent 2026-10-17 ~19:32 EDT; 1 bounced (recipient server misconfigured).",
   "counts": {
     "collected": 481,
     "validated": 465,
