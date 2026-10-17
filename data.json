@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-10-17T23:39:44.054794+00:00",
+  "updated_at": "2026-10-17T23:42:50.397880+00:00",
   "stage": "pilot_sent",
   "note": "Pilot batch of 25 Ottawa emails sent 2026-10-17 ~19:32 EDT; 1 bounced (recipient server misconfigured).",
   "counts": {
-    "collected": 481,
+    "collected": 465,
     "validated": 465,
     "ready_to_send": 464,
-    "sent": 0,
+    "sent": 24,
     "replied": 0
   },
   "segments": [
     {
-      "name": "Ottawa",
-      "collected": 175,
-      "validated": 175
+      "name": "Ajax",
+      "collected": 5,
+      "validated": 5
     },
     {
-      "name": "Mississauga",
-      "collected": 42,
-      "validated": 42
-    },
-    {
-      "name": "Toronto",
-      "collected": 34,
-      "validated": 34
+      "name": "Barrhaven",
+      "collected": 8,
+      "validated": 8
     },
     {
       "name": "Brampton",
@@ -31,9 +26,14 @@
       "validated": 29
     },
     {
-      "name": "Scarborough",
-      "collected": 28,
-      "validated": 28
+      "name": "Etobicoke",
+      "collected": 15,
+      "validated": 15
+    },
+    {
+      "name": "Gatineau",
+      "collected": 8,
+      "validated": 8
     },
     {
       "name": "Kanata",
@@ -41,29 +41,24 @@
       "validated": 21
     },
     {
-      "name": "Orleans",
-      "collected": 18,
-      "validated": 18
+      "name": "Manotick",
+      "collected": 3,
+      "validated": 3
     },
     {
-      "name": "Etobicoke",
-      "collected": 15,
-      "validated": 15
+      "name": "Markham",
+      "collected": 10,
+      "validated": 10
     },
     {
-      "name": "Vaughan",
-      "collected": 14,
-      "validated": 14
+      "name": "Mississauga",
+      "collected": 42,
+      "validated": 42
     },
     {
       "name": "Nepean",
       "collected": 14,
       "validated": 14
-    },
-    {
-      "name": "Richmond Hill",
-      "collected": 13,
-      "validated": 13
     },
     {
       "name": "North York",
@@ -76,39 +71,14 @@
       "validated": 10
     },
     {
-      "name": "Markham",
-      "collected": 10,
-      "validated": 10
+      "name": "Orleans",
+      "collected": 18,
+      "validated": 18
     },
     {
-      "name": "Barrhaven",
-      "collected": 8,
-      "validated": 8
-    },
-    {
-      "name": "Gatineau",
-      "collected": 8,
-      "validated": 8
-    },
-    {
-      "name": "Ajax",
-      "collected": 5,
-      "validated": 5
-    },
-    {
-      "name": "Manotick",
-      "collected": 3,
-      "validated": 3
-    },
-    {
-      "name": "Richmond",
-      "collected": 2,
-      "validated": 2
-    },
-    {
-      "name": "Smiths Falls",
-      "collected": 2,
-      "validated": 2
+      "name": "Ottawa",
+      "collected": 176,
+      "validated": 176
     },
     {
       "name": "Oxford Mills",
@@ -116,21 +86,52 @@
       "validated": 1
     },
     {
-      "name": "Stittsville",
-      "collected": 1,
-      "validated": 1
+      "name": "Richmond",
+      "collected": 2,
+      "validated": 2
+    },
+    {
+      "name": "Richmond Hill",
+      "collected": 13,
+      "validated": 13
     },
     {
       "name": "Rockland",
       "collected": 1,
       "validated": 1
+    },
+    {
+      "name": "Scarborough",
+      "collected": 28,
+      "validated": 28
+    },
+    {
+      "name": "Smiths Falls",
+      "collected": 2,
+      "validated": 2
+    },
+    {
+      "name": "Stittsville",
+      "collected": 1,
+      "validated": 1
+    },
+    {
+      "name": "Toronto",
+      "collected": 34,
+      "validated": 34
+    },
+    {
+      "name": "Vaughan",
+      "collected": 14,
+      "validated": 14
     }
   ],
   "schedule": [
     {
       "name": "Pilot batch",
       "size": 25,
-      "status": "awaiting approval"
+      "status": "sent",
+      "detail": "24 delivered, 1 bounced"
     }
   ],
   "leads_preview": [
