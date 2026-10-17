@@ -1,0 +1,14 @@
+{
+  "updated_at": "2026-10-17T18:30:00-04:00",
+  "stage": "collecting",
+  "note": "Collector agents are gathering business emails. This dashboard refreshes as data lands.",
+  "counts": {
+    "collected": 0,
+    "validated": 0,
+    "ready_to_send": 0,
+    "sent": 0,
+    "replied": 0
+  },
+  "segments": [],
+  "leads_preview": []
+}

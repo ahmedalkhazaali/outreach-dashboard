@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Freelance Outreach — Campaign Dashboard</title>
+<style>
+  :root {
+    --bg: #0f1115; --card: #171a21; --border: #262b36;
+    --text: #e8eaf0; --muted: #9aa3b2;
+    --accent: #4f8ff7; --green: #3ecf8e; --yellow: #f5b942; --red: #f26d6d;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); padding: 24px; }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+  header { margin-bottom: 24px; }
+  header h1 { font-size: 24px; font-weight: 700; }
+  header p { color: var(--muted); font-size: 14px; margin-top: 4px; }
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 20px; }
+  .kpi { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+  .kpi .label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .5px; }
+  .kpi .value { font-size: 32px; font-weight: 700; margin-top: 6px; }
+  .kpi.collected .value { color: var(--accent); }
+  .kpi.validated .value { color: var(--yellow); }
+  .kpi.ready .value { color: var(--green); }
+  .kpi.sent .value { color: #b388ff; }
+  .kpi.replied .value { color: var(--green); }
+  .pipeline { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+  .pipeline h2, .panel h2 { font-size: 15px; margin-bottom: 14px; }
+  .bar { height: 14px; background: #0c0e12; border-radius: 8px; overflow: hidden; display: flex; }
+  .bar div { height: 100%; transition: width .5s; }
+  .legend { display: flex; gap: 16px; margin-top: 10px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
+  .legend span i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+  @media (max-width: 700px) { .grid2 { grid-template-columns: 1fr; } }
+  .panel { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  th { color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .4px; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+  .b-valid { background: rgba(62,207,142,.15); color: var(--green); }
+  .b-pending { background: rgba(245,185,66,.15); color: var(--yellow); }
+  .b-sent { background: rgba(179,136,255,.15); color: #b388ff; }
+  .b-replied { background: rgba(62,207,142,.25); color: var(--green); }
+  .note { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; font-size: 14px; color: var(--muted); }
+  .updated { text-align: right; color: var(--muted); font-size: 12px; margin-top: 16px; }
+  .empty { color: var(--muted); font-size: 14px; padding: 12px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Freelance Outreach — Campaign Dashboard</h1>
+    <p>Cold-email campaign to local small businesses · <span id="stage"></span></p>
+  </header>
+
+  <div class="kpis">
+    <div class="kpi collected"><div class="label">Collected</div><div class="value" id="k-collected">0</div></div>
+    <div class="kpi validated"><div class="label">Validated</div><div class="value" id="k-validated">0</div></div>
+    <div class="kpi ready"><div class="label">Ready to send</div><div class="value" id="k-ready">0</div></div>
+    <div class="kpi sent"><div class="label">Sent</div><div class="value" id="k-sent">0</div></div>
+    <div class="kpi replied"><div class="label">Replies</div><div class="value" id="k-replied">0</div></div>
+  </div>
+
+  <div class="pipeline">
+    <h2>Pipeline</h2>
+    <div class="bar" id="pbar">
+      <div style="background:var(--accent)" id="b-collected"></div>
+      <div style="background:var(--yellow)" id="b-validated"></div>
+      <div style="background:var(--green)" id="b-ready"></div>
+      <div style="background:#b388ff" id="b-sent"></div>
+    </div>
+    <div class="legend">
+      <span><i style="background:var(--accent)"></i>Collected</span>
+      <span><i style="background:var(--yellow)"></i>Validated</span>
+      <span><i style="background:var(--green)"></i>Ready</span>
+      <span><i style="background:#b388ff"></i>Sent</span>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <h2>Segments</h2>
+      <div id="segments"><div class="empty">No segment data yet.</div></div>
+    </div>
+    <div class="panel">
+      <h2>Send schedule</h2>
+      <table id="schedule">
+        <tr><th>Batch</th><th>Size</th><th>Status</th></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-bottom:20px">
+    <h2>Leads (preview)</h2>
+    <div id="leads"><div class="empty">Leads are being collected — they'll appear here as they're validated.</div></div>
+  </div>
+
+  <div class="note" id="note"></div>
+  <div class="updated">Last updated: <span id="updated"></span></div>
+</div>
+
+<script>
+fetch('data.json').then(r => r.json()).then(d => {
+  const c = d.counts;
+  document.getElementById('k-collected').textContent = c.collected;
+  document.getElementById('k-validated').textContent = c.validated;
+  document.getElementById('k-ready').textContent = c.ready_to_send;
+  document.getElementById('k-sent').textContent = c.sent;
+  document.getElementById('k-replied').textContent = c.replied;
+  document.getElementById('stage').textContent = {collecting:'Collecting leads', validating:'Validating emails', ready:'Ready to send', sending:'Sending', done:'Complete'}[d.stage] || d.stage;
+  const total = Math.max(c.collected, 1);
+  document.getElementById('b-collected').style.width = (c.collected/total*100)+'%';
+  document.getElementById('b-validated').style.width = (c.validated/total*100)+'%';
+  document.getElementById('b-ready').style.width = (c.ready_to_send/total*100)+'%';
+  document.getElementById('b-sent').style.width = (c.sent/total*100)+'%';
+  document.getElementById('note').textContent = d.note || '';
+  document.getElementById('updated').textContent = new Date(d.updated_at).toLocaleString();
+
+  if (d.segments && d.segments.length) {
+    let h = '<table><tr><th>Segment</th><th>Collected</th><th>Validated</th></tr>';
+    d.segments.forEach(s => { h += `<tr><td>${s.name}</td><td>${s.collected}</td><td>${s.validated}</td></tr>`; });
+    h += '</table>';
+    document.getElementById('segments').innerHTML = h;
+  }
+  if (d.schedule && d.schedule.length) {
+    let h = '';
+    d.schedule.forEach(b => { h += `<tr><td>${b.name}</td><td>${b.size}</td><td><span class="badge b-pending">${b.status}</span></td></tr>`; });
+    document.getElementById('schedule').innerHTML += h;
+  }
+  if (d.leads_preview && d.leads_preview.length) {
+    let h = '<table><tr><th>Business</th><th>Contact</th><th>Email</th><th>City</th><th>Status</th></tr>';
+    d.leads_preview.forEach(l => {
+      const badge = l.status === 'replied' ? 'b-replied' : l.status === 'sent' ? 'b-sent' : l.status === 'validated' ? 'b-valid' : 'b-pending';
+      h += `<tr><td>${l.business}</td><td>${l.contact||'—'}</td><td>${l.email}</td><td>${l.city}</td><td><span class="badge ${badge}">${l.status}</span></td></tr>`;
+    });
+    h += '</table>';
+    document.getElementById('leads').innerHTML = h;
+  }
+}).catch(e => { document.getElementById('note').textContent = 'Could not load data.json — ' + e; });
+</script>
+</body>
+</html>
