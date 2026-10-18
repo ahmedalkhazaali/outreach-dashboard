@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-10-18T13:41:43.269005+00:00",
+  "updated_at": "2026-10-18T14:45:00.343393+00:00",
   "stage": "pilot_sent",
-  "note": "Pilot batch of 25 Ottawa emails sent 2026-10-17 ~19:32 EDT; 2 bounced (GO Fitness: recipient server misconfigured; Mill Bakery: address does not exist). 23 delivered.",
+  "note": "Added 25 independent Ottawa HVAC/plumbing/electrical leads 2026-10-18 (5-20 employee targeting per Ahmed). Pilot batch of 25 Ottawa emails sent 2026-10-17 ~19:32 EDT; 2 bounced (GO Fitness: recipient server misconfigured; Mill Bakery: address does not exist). 23 delivered.",
   "counts": {
-    "collected": 465,
-    "validated": 465,
-    "ready_to_send": 464,
+    "collected": 490,
+    "validated": 490,
+    "ready_to_send": 489,
     "sent": 25,
     "replied": 0
   },
