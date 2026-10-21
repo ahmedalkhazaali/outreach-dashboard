@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-10-20T00:07:36.435798+00:00",
+  "updated_at": "2026-10-21T06:41:42.700051+00:00",
   "stage": "pilot_sent",
   "note": "Pilot batch of 25 Ottawa emails sent 2026-10-17 ~19:32 EDT; 2 bounced (GO Fitness, Mill Bakery). 23 delivered. 7 trades emails sent 2026-10-18 (AirZone, O'Dell, Hyperion, Lumos, Ardoch, HR Electric, B&W). 8 more trades emails sent 2026-10-19 ~16:30 EDT (Orleans, Canada Plumbing, RTP, Out of This World, Plumbing Now, Safari, Francis, Hero). 10 remaining in queue (Summit Drain through KAD) \u2014 paused on approval-card timeouts.",
   "counts": {
-    "collected": 490,
-    "validated": 490,
+    "collected": 492,
+    "validated": 492,
     "ready_to_send": 452,
     "sent": 38,
     "replied": 0
